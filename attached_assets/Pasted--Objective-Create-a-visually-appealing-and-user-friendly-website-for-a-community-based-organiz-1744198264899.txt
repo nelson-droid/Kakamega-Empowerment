@@ -1,0 +1,42 @@
+**Objective:**  
+Create a visually appealing and user-friendly website for a community-based organization that addresses climate change and promotes urban farming in rural areas. The website will be static, with Supabase as the backend to store and manage information.
+
+**Requirements:**  
+1. **Homepage:**
+   - Include an impactful hero section with an image or illustration related to climate change and urban farming.
+   - Add a concise mission statement or tagline (e.g., "Empowering Rural Communities Through Sustainable Farming").
+   - Include navigation links: *Home*, *About Us*, *Projects*, *Get Involved*, *Contact Us*.
+   - Add a call-to-action button (e.g., "Join Us" or "Donate").
+
+2. **About Us Page:**
+   - Provide space for the organization's history, mission, and vision.
+   - Include team member profiles with photos and short bios.
+
+3. **Projects Page:**
+   - Showcase ongoing and completed projects with images, descriptions, and impact metrics.
+   - Include filters for project categories (e.g., *Climate Initiatives*, *Urban Farming*).
+
+4. **Get Involved Page:**
+   - Add options for volunteering, donations, and partnerships.
+   - Include forms to collect user data (e.g., name, email, message) connected to Supabase.
+
+5. **Contact Us Page:**
+   - Provide contact details (email, phone number, address).
+   - Embed a contact form linked to Supabase for inquiries.
+
+**Design Specifications:**
+* Use an eco-friendly color palette (greens, browns, blues).
+* Incorporate clean typography that reflects professionalism and accessibility.
+* Ensure responsive design across devices (desktop, tablet, mobile).
+
+**Backend Integration:**  
+* Use Supabase to store user-submitted data from forms (volunteer sign-ups, inquiries).
+* Create basic CRUD functionality for managing project information.
+
+**Mockup Tools:**  
+Suggest using tools like Visily or Renderforest for quick prototyping with editable templates that align with the organization's branding.
+
+**Output:**  
+Generate a downloadable mockup in PSD or other editable formats with:
+* Clear layout visuals for all pages.
+* Placeholder text/images for easy customization.
