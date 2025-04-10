@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'wouter';
+import logoImage from '@assets/LOGO IMAGE.jpeg';
 
 const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -22,11 +23,7 @@ const Navbar = () => {
       <nav className="container mx-auto px-4 py-3 flex items-center justify-between">
         <div className="flex items-center">
           <Link href="/" className="flex items-center">
-            <svg className="h-10 w-10 text-primary" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M7 21V11.5L2.5 7L12 2L21.5 7L17 11.5V17L12 21L7 17V21Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              <path d="M12 21V12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              <path d="M12 12L17 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
+            <img src={logoImage} alt="GreenRoots Logo" className="h-12 w-auto" />
             <span className="ml-2 text-xl font-bold text-primary" style={{ fontFamily: 'Montserrat, sans-serif' }}>GreenRoots</span>
           </Link>
         </div>
