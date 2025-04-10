@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Project } from '@/lib/types';
+import { kalesImages } from '@/lib/supabase';
 
 interface ProjectCardProps {
   project: Project;
@@ -53,7 +54,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
       style={{ transition: 'opacity 0.6s ease-out, transform 0.6s ease-out', transform: isVisible ? 'translateY(0)' : 'translateY(20px)' }}
     >
       <img 
-        src={project.image} 
+        src={project.image === 'kale-farming-project' ? kalesImages.image1 : project.image} 
         alt={project.title} 
         className="w-full h-56 object-cover"
       />

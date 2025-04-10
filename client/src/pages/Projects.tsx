@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import ProjectCard from '@/components/projects/ProjectCard';
 import ProjectFilters from '@/components/projects/ProjectFilters';
+import KaleFarmingProject from '@/components/projects/KaleFarmingProject';
 import { Project } from '@/lib/types';
 
 interface ProjectsResponse {
@@ -122,6 +123,16 @@ const Projects = () => {
             >
               Load More Projects
             </button>
+          </div>
+        )}
+        
+        {/* Featured Kale Farming Project with Images */}
+        {!isLoading && !error && (activeCategory === 'All Projects' || activeCategory === 'Urban Farming') && (
+          <div className="mt-16">
+            <h3 className="text-2xl font-bold text-gray-800 mb-8 text-center" style={{ fontFamily: 'Montserrat, sans-serif' }}>
+              Featured Project Highlight
+            </h3>
+            <KaleFarmingProject />
           </div>
         )}
       </div>
