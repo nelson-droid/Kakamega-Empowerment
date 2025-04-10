@@ -70,7 +70,7 @@ const History = () => {
         <HistoryItem 
           number="3" 
           title="Present Day" 
-          description="Today, GreenRoots operates 25+ community gardens, employs innovative climate mitigation strategies, and partners with schools, local governments, and businesses."
+          description="Today, Kakamega Empowerment Network operates 25+ community gardens, employs innovative climate mitigation strategies, and partners with schools, local governments, and businesses."
         />
       </div>
     </div>

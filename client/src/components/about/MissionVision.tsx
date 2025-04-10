@@ -38,7 +38,7 @@ const MissionVision = () => {
       <div className={`self-center ${isVisible ? 'opacity-100' : 'opacity-0'}`} style={{ transition: 'opacity 0.6s ease-out, transform 0.6s ease-out', transform: isVisible ? 'translateY(0)' : 'translateY(20px)' }}>
         <h3 className="text-2xl font-bold text-gray-800 mb-4" style={{ fontFamily: 'Montserrat, sans-serif' }}>Our Mission</h3>
         <p className="text-gray-600 mb-6">
-          GreenRoots is dedicated to combating climate change by promoting sustainable urban farming practices in rural communities. We believe in empowering individuals with the knowledge, skills, and resources to create self-sufficient and environmentally friendly food systems.
+          Kakamega Empowerment Network is dedicated to combating climate change by promoting sustainable urban farming practices in rural communities. We believe in empowering individuals with the knowledge, skills, and resources to create self-sufficient and environmentally friendly food systems.
         </p>
         <h3 className="text-2xl font-bold text-gray-800 mb-4" style={{ fontFamily: 'Montserrat, sans-serif' }}>Our Vision</h3>
         <p className="text-gray-600">

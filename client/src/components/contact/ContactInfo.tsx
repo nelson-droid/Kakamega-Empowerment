@@ -45,7 +45,7 @@ const ContactInfo = () => {
       <div className="mb-8">
         <h4 className="text-lg font-semibold text-gray-800 mb-2">Contact Details</h4>
         <p className="text-gray-600 mb-2">
-          <span className="font-medium">Email:</span> info@greenroots.org
+          <span className="font-medium">Email:</span> info@kakamegaempowerment.org
         </p>
         <p className="text-gray-600 mb-2">
           <span className="font-medium">Phone:</span> (555) 123-4567
