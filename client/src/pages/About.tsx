@@ -6,7 +6,7 @@ import TeamMembers from '@/components/about/TeamMembers';
 const About = () => {
   // Set page title
   useEffect(() => {
-    document.title = "About Us - GreenRoots";
+    document.title = "About Us - Kakamega Empowerment Network";
   }, []);
 
   return (

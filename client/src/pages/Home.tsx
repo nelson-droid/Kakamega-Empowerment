@@ -8,7 +8,7 @@ import { useEffect } from 'react';
 const Home = () => {
   // Set page title
   useEffect(() => {
-    document.title = "GreenRoots - Empowering Rural Communities Through Sustainable Farming";
+    document.title = "Kakamega Empowerment Network - Empowering Rural Communities Through Sustainable Farming";
   }, []);
 
   return (

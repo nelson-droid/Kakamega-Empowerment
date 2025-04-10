@@ -42,7 +42,7 @@ const Footer = () => {
                 <path d="M12 21V12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                 <path d="M12 12L17 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
-              <span className="ml-2 text-xl font-bold" style={{ fontFamily: 'Montserrat, sans-serif' }}>GreenRoots</span>
+              <span className="ml-2 text-xl font-bold" style={{ fontFamily: 'Montserrat, sans-serif' }}>Kakamega Empowerment Network</span>
             </Link>
             <p className="text-white/80 mb-4">
               Empowering rural communities through sustainable farming and climate action.
@@ -127,7 +127,7 @@ const Footer = () => {
         
         <div className="border-t border-white/20 pt-8 text-center">
           <p className="text-white/80 text-sm">
-            &copy; {new Date().getFullYear()} GreenRoots. All rights reserved. | 
+            &copy; {new Date().getFullYear()} Kakamega Empowerment Network. All rights reserved. | 
             <a href="#" className="hover:text-white transition"> Privacy Policy</a> | 
             <a href="#" className="hover:text-white transition"> Terms of Service</a>
           </p>
