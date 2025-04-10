@@ -5,7 +5,7 @@ import ContactForm from '@/components/contact/ContactForm';
 const Contact = () => {
   // Set page title
   useEffect(() => {
-    document.title = "Contact Us - GreenRoots";
+    document.title = "Contact Us - Kakamega Empowerment Network";
   }, []);
 
   return (
@@ -41,7 +41,7 @@ const Contact = () => {
               style={{ border: 0 }} 
               allowFullScreen={false} 
               loading="lazy"
-              title="GreenRoots Location"
+              title="Kakamega Empowerment Network Location"
             ></iframe>
           </p>
         </div>
