@@ -76,6 +76,19 @@ export class MemStorage implements IStorage {
   private seedProjects() {
     const projectsData: InsertProject[] = [
       {
+        title: "Innovative Kale Vertical Farming Project",
+        description: "This project showcases innovative urban farming techniques using vertical gardening and sack gardening to grow nutritious vegetables like kale and spinach in limited spaces.",
+        category: "Urban Farming",
+        status: "Active",
+        image: "kale-farming-project", // Special flag to use the local image in the frontend
+        impactMetrics: [
+          { label: "Space Saved", value: "75%" },
+          { label: "Water Saved", value: "90%" },
+          { label: "Organic", value: "100%" },
+          { label: "Yield Increase", value: "3x" }
+        ]
+      },
+      {
         title: "Rooftop Gardens Project",
         description: "Converting unused rooftops into productive gardens to reduce urban heat islands and provide fresh produce.",
         category: "Climate Initiative",
