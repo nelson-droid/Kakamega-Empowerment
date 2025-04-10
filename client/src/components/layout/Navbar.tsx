@@ -23,8 +23,8 @@ const Navbar = () => {
       <nav className="container mx-auto px-4 py-3 flex items-center justify-between">
         <div className="flex items-center">
           <Link href="/" className="flex items-center">
-            <img src={logoImage} alt="GreenRoots Logo" className="h-12 w-auto" />
-            <span className="ml-2 text-xl font-bold text-primary" style={{ fontFamily: 'Montserrat, sans-serif' }}>GreenRoots</span>
+            <img src={logoImage} alt="Kakamega Empowerment Network Logo" className="h-12 w-auto" />
+            <span className="ml-2 text-xl font-bold text-primary" style={{ fontFamily: 'Montserrat, sans-serif' }}>Kakamega Empowerment Network</span>
           </Link>
         </div>
 

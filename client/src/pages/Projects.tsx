@@ -13,7 +13,7 @@ interface ProjectsResponse {
 const Projects = () => {
   // Set page title
   useEffect(() => {
-    document.title = "Our Projects - GreenRoots";
+    document.title = "Our Projects - Kakamega Empowerment Network";
   }, []);
 
   const [activeCategory, setActiveCategory] = useState('All Projects');
