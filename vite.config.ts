@@ -9,6 +9,7 @@ import imagemin from 'vite-plugin-imagemin';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 export default defineConfig({
+  base: "/Kakamega-Empowerment/",
   plugins: [
     react(),
     runtimeErrorOverlay(),
@@ -58,7 +59,7 @@ export default defineConfig({
   },
   root: path.resolve(__dirname, "client"),
   build: {
-    outDir: path.resolve(__dirname, "dist/public"),
+    outDir: "dist",
     emptyOutDir: true,
     rollupOptions: {
       output: {
