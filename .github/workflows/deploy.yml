@@ -19,15 +19,10 @@ jobs:
           node-version: '18'
 
       - name: Install Dependencies
-        run: |
-          npm install
-          cd client
-          npm install
+        run: npm install
 
       - name: Build
-        run: |
-          cd client
-          npm run build
+        run: npm run build
         env:
           VITE_SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL }}
           VITE_SUPABASE_ANON_KEY: ${{ secrets.VITE_SUPABASE_ANON_KEY }}
@@ -36,5 +31,5 @@ jobs:
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: client/dist
+          folder: dist/public
           branch: gh-pages 
