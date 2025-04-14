@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Project } from '@/lib/types';
-import { kalesImages } from '@/lib/supabase';
+import kalesImage1 from '@/assets/KALES IMAGE 1.jpeg';
+import kalesImage2 from '@/assets/KALES IMAGE 2.jpeg';
 
 interface ProjectCardProps {
   project: Project;
@@ -47,6 +48,14 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
     }
   };
 
+  // Get the image source based on the project
+  const getImageSource = () => {
+    if (project.image === 'kale-farming-project') {
+      return kalesImage1;
+    }
+    return project.image;
+  };
+
   return (
     <div 
       id={`project-${project.id}`}
@@ -54,7 +63,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
       style={{ transition: 'opacity 0.6s ease-out, transform 0.6s ease-out', transform: isVisible ? 'translateY(0)' : 'translateY(20px)' }}
     >
       <img 
-        src={project.image === 'kale-farming-project' ? kalesImages.image1 : project.image} 
+        src={getImageSource()} 
         alt={project.title} 
         className="w-full h-56 object-cover"
       />

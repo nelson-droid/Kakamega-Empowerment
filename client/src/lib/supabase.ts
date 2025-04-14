@@ -1,6 +1,6 @@
 import { createClient } from '@supabase/supabase-js';
-import kalesImage1 from '@assets/KALES IMAGE 1.jpeg';
-import kalesImage2 from '@assets/KALES IMAGE 2.jpeg';
+import kalesImage1 from '@/assets/KALES IMAGE 1.jpeg';
+import kalesImage2 from '@/assets/KALES IMAGE 2.jpeg';
 
 // Get the Supabase URL and key from environment variables
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL || '';

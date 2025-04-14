@@ -6,7 +6,7 @@ import PartnershipForm from '@/components/get-involved/PartnershipForm';
 const GetInvolved = () => {
   // Set page title
   useEffect(() => {
-    document.title = "Get Involved - Kakamega Empowerment Network";
+    document.title = "Get Involved - Kakamega Empowerment";
   }, []);
 
   return (
@@ -65,7 +65,7 @@ const GetInvolved = () => {
           </div>
           
           <p className="text-sm text-gray-500">
-            Kakamega Empowerment Network is a 501(c)(3) organization. Your donation may be tax-deductible.
+            Kakamega Empowerment is a 501(c)(3) organization. Your donation may be tax-deductible.
           </p>
         </div>
       </div>

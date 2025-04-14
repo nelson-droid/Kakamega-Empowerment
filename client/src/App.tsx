@@ -8,6 +8,7 @@ import About from "@/pages/About";
 import Projects from "@/pages/Projects";
 import GetInvolved from "@/pages/GetInvolved";
 import Contact from "@/pages/Contact";
+import DonationSuccess from "@/pages/DonationSuccess";
 
 function Router() {
   return (
@@ -17,6 +18,7 @@ function Router() {
       <Route path="/projects" component={Projects}/>
       <Route path="/get-involved" component={GetInvolved}/>
       <Route path="/contact" component={Contact}/>
+      <Route path="/donation-success" component={DonationSuccess}/>
       <Route component={NotFound} />
     </Switch>
   );

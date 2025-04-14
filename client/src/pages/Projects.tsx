@@ -13,7 +13,7 @@ interface ProjectsResponse {
 const Projects = () => {
   // Set page title
   useEffect(() => {
-    document.title = "Our Projects - Kakamega Empowerment Network";
+    document.title = "Our Projects - Kakamega Empowerment";
   }, []);
 
   const [activeCategory, setActiveCategory] = useState('All Projects');
@@ -31,7 +31,7 @@ const Projects = () => {
 
   // Extract unique categories from projects
   const categories = projects.length > 0
-    ? [...new Set(projects.map(p => p.category))]
+    ? Array.from(new Set(projects.map(p => p.category)))
     : [];
 
   // Filter projects based on selected category

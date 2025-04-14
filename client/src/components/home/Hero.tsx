@@ -1,11 +1,12 @@
 import { Link } from 'wouter';
+import coverPhoto from '../../assets/cover-photo.png';
 
 const Hero = () => {
   return (
     <div className="relative h-[80vh] overflow-hidden">
       <img 
-        src="https://images.unsplash.com/photo-1532467411038-57680e3dc0f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80" 
-        alt="Urban farm with vegetables growing in a community garden" 
+        src={coverPhoto}
+        alt="Community Connect Platform Cover Photo" 
         className="absolute inset-0 w-full h-full object-cover"
       />
       <div className="absolute inset-0 bg-black opacity-40"></div>

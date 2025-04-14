@@ -49,26 +49,26 @@ const TeamMember: React.FC<TeamMemberProps> = ({ image, name, position, bio }) =
 const TeamMembers = () => {
   const teamMembers = [
     {
-      image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
-      name: "Dr. Sarah Chen",
-      position: "Founder & Executive Director",
-      bio: "Environmental scientist with 15+ years of experience in sustainable agriculture and climate policy."
+      image: "/src/assets/chairman.jpeg",
+      name: "Nelson Likhaya",
+      position: "Chairman",
+      bio: "Environmental scientist with 5+ years of experience in sustainable agriculture and climate policy."
     },
     {
-      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
-      name: "Marcus Johnson",
+      image: "/src/assets/barrack-likhaya.jpeg",
+      name: "Barrack Likhaya",
       position: "Director of Operations",
       bio: "Former urban planner who specializes in designing efficient, sustainable community spaces."
     },
     {
-      image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
-      name: "Aisha Patel",
+      image: "/src/assets/euphemia-andeso.jpeg",
+      name: "Euphemia Andeso",
       position: "Education Director",
       bio: "Develops our curriculum and training programs for schools and community workshops."
     },
     {
-      image: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
-      name: "James Wilson",
+      image: "/src/assets/innocent-likhaya.jpeg",
+      name: "Innocent Likhaya",
       position: "Climate Initiatives Lead",
       bio: "Specializes in measuring and optimizing the climate impact of our farming practices."
     }

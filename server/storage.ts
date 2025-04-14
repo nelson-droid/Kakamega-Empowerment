@@ -93,7 +93,7 @@ export class MemStorage implements IStorage {
         description: "Converting unused rooftops into productive gardens to reduce urban heat islands and provide fresh produce.",
         category: "Climate Initiative",
         status: "Active",
-        image: "https://images.unsplash.com/photo-1592991538534-50fdc2a01031?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+        image: "/src/assets/roof-gardens.jpg",
         impactMetrics: [
           { label: "Rooftops Converted", value: "12" },
           { label: "Produce Yearly", value: "3.5 Tons" },
@@ -106,7 +106,7 @@ export class MemStorage implements IStorage {
         description: "Implementing space-efficient vertical farming technologies to maximize yield in limited urban spaces.",
         category: "Urban Farming",
         status: "Active",
-        image: "https://images.unsplash.com/photo-1584299342583-05e456782260?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+        image: "/src/assets/vertical-farm.jpg",
         impactMetrics: [
           { label: "Vertical Farms", value: "8" },
           { label: "Less Water Used", value: "90%" },
@@ -119,7 +119,7 @@ export class MemStorage implements IStorage {
         description: "Teaching children sustainable farming practices through hands-on experience in school gardens.",
         category: "Education",
         status: "Active",
-        image: "https://images.unsplash.com/photo-1620706857370-e1b9770e8bb1?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+        image: "/src/assets/school-garden.jpg",
         impactMetrics: [
           { label: "Schools Participating", value: "15" },
           { label: "Students Reached", value: "1,200+" },
@@ -172,7 +172,12 @@ export class MemStorage implements IStorage {
   async addVolunteerApplication(data: InsertVolunteerApplication): Promise<VolunteerApplication> {
     const id = this.volunteerCurrentId++;
     const createdAt = new Date();
-    const application: VolunteerApplication = { ...data, id, createdAt };
+    const application: VolunteerApplication = { 
+      ...data, 
+      id, 
+      createdAt,
+      interests: data.interests || null
+    };
     this.volunteerApplications.set(id, application);
     return application;
   }
