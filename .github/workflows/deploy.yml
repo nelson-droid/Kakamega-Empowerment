@@ -29,12 +29,16 @@ jobs:
       - name: Install Dependencies
         working-directory: client
         run: |
+          rm -rf node_modules package-lock.json
           npm install
-          npm ci
       
       - name: Build
         working-directory: client
-        run: npm run build
+        env:
+          CI: false
+        run: |
+          npm install -g vite
+          npm run build
       
       - name: List Build Directory
         working-directory: client
