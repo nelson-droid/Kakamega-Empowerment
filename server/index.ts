@@ -4,6 +4,8 @@ import { setupVite, serveStatic, log } from "./vite";
 import rateLimit from 'express-rate-limit';
 import Stripe from 'stripe';
 import dotenv from 'dotenv';
+import cors from 'cors';
+import compression from 'compression';
 
 // Load environment variables
 dotenv.config();
@@ -22,6 +24,9 @@ class AppError extends Error {
 
 const app = express();
 
+// Enable compression
+app.use(compression());
+
 // Rate limiting with more lenient settings
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutes
@@ -29,9 +34,33 @@ const limiter = rateLimit({
   message: 'Too many requests from this IP, please try again later.'
 });
 
+// Enable CORS with environment-specific origins
+const allowedOrigins = process.env.NODE_ENV === 'production' 
+  ? ['https://kakamega-empowerment.netlify.app', 'https://kakamega-empowerment.org'] 
+  : ['http://localhost:5173', 'http://localhost:3000'];
+
+app.use(cors({
+  origin: (origin: string | undefined, callback: (err: Error | null, allow?: boolean) => void) => {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true
+}));
+
+// Middleware setup with increased limits for better performance
 app.use(limiter);
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.json({ limit: '10mb' }));
+app.use(express.urlencoded({ extended: false, limit: '10mb' }));
+
+// Cache static files
+app.use(express.static('public', {
+  maxAge: '1d',
+  etag: true,
+  lastModified: true
+}));
 
 // Request logging middleware
 app.use((req, res, next) => {
@@ -89,47 +118,66 @@ const errorHandler = (
   });
 };
 
+// Initialize Stripe with proper error handling
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
   apiVersion: '2025-03-31.basil',
+  typescript: true,
 });
 
-// Add this to your routes
+// Payment intent creation endpoint with improved error handling
 app.post('/api/create-payment-intent', async (req, res) => {
   const { amount } = req.body;
   
+  if (!amount || amount <= 0) {
+    return res.status(400).json({ error: 'Invalid amount' });
+  }
+  
   try {
     const paymentIntent = await stripe.paymentIntents.create({
-      amount: amount * 100, // Convert to cents
+      amount: Math.round(amount * 100), // Convert to cents and ensure it's an integer
       currency: 'usd',
+      automatic_payment_methods: {
+        enabled: true,
+      },
+      metadata: {
+        integration_check: 'accept_a_payment',
+      },
     });
     
     res.json({ clientSecret: paymentIntent.client_secret });
   } catch (error) {
+    console.error('Error creating payment intent:', error);
     res.status(500).json({ error: 'Failed to create payment intent' });
   }
 });
 
+// Server startup
 (async () => {
-  const server = await registerRoutes(app);
+  try {
+    const server = await registerRoutes(app);
 
-  // Apply error handling middleware
-  app.use(errorHandler);
+    // Apply error handling middleware
+    app.use(errorHandler);
 
-  // Development vs Production setup
-  if (app.get("env") === "development") {
-    await setupVite(app, server);
-  } else {
-    serveStatic(app);
+    // Development vs Production setup
+    if (app.get("env") === "development") {
+      await setupVite(app, server);
+    } else {
+      serveStatic(app);
+    }
+
+    const port = process.env.PORT || 5000;
+    const host = process.env.NODE_ENV === 'production' ? '0.0.0.0' : 'localhost';
+
+    server.listen({
+      port: Number(port),
+      host,
+      reusePort: true,
+    }, () => {
+      log(`Server running in ${process.env.NODE_ENV} mode on port ${port}`);
+    });
+  } catch (error) {
+    console.error('Failed to start server:', error);
+    process.exit(1);
   }
-
-  const port = process.env.PORT || 5000;
-  const host = process.env.NODE_ENV === 'production' ? '0.0.0.0' : 'localhost';
-
-  server.listen({
-    port: Number(port),
-    host,
-    reusePort: true,
-  }, () => {
-    log(`Server running in ${process.env.NODE_ENV} mode on port ${port}`);
-  });
 })();

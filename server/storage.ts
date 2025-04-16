@@ -13,7 +13,7 @@ import {
 } from "@shared/schema";
 
 export interface IStorage {
-  // User operations (required to maintain compatibility)
+  // User operations
   getUser(id: number): Promise<User | undefined>;
   getUserByUsername(username: string): Promise<User | undefined>;
   createUser(user: InsertUser): Promise<User>;
@@ -38,13 +38,13 @@ export interface IStorage {
   deleteProject(id: number): Promise<boolean>;
 }
 
-export class MemStorage implements IStorage {
-  private users: Map<number, User>;
-  private newsletterSubscriptions: Map<number, NewsletterSubscription>;
-  private contactSubmissions: Map<number, ContactSubmission>;
-  private volunteerApplications: Map<number, VolunteerApplication>;
-  private partnershipInquiries: Map<number, PartnershipInquiry>;
-  private projects: Map<number, Project>;
+class MemStorage implements IStorage {
+  private readonly users: Map<number, User>;
+  private readonly newsletterSubscriptions: Map<number, NewsletterSubscription>;
+  private readonly contactSubmissions: Map<number, ContactSubmission>;
+  private readonly volunteerApplications: Map<number, VolunteerApplication>;
+  private readonly partnershipInquiries: Map<number, PartnershipInquiry>;
+  private readonly projects: Map<number, Project>;
   
   private userCurrentId: number;
   private newsletterCurrentId: number;
@@ -73,14 +73,14 @@ export class MemStorage implements IStorage {
   }
 
   // Seed with sample projects
-  private seedProjects() {
+  private seedProjects(): void {
     const projectsData: InsertProject[] = [
       {
         title: "Innovative Kale Vertical Farming Project",
         description: "This project showcases innovative urban farming techniques using vertical gardening and sack gardening to grow nutritious vegetables like kale and spinach in limited spaces.",
         category: "Urban Farming",
         status: "Active",
-        image: "kale-farming-project", // Special flag to use the local image in the frontend
+        image: "kale-farming-project",
         impactMetrics: [
           { label: "Space Saved", value: "75%" },
           { label: "Water Saved", value: "90%" },
@@ -227,4 +227,5 @@ export class MemStorage implements IStorage {
   }
 }
 
+// Export a singleton instance
 export const storage = new MemStorage();

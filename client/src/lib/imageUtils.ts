@@ -1,21 +1,8 @@
 import path from 'path';
 import fs from 'fs/promises';
 
-interface ImageOptimizationOptions {
-  quality?: number;
-  maxWidth?: number;
-  maxHeight?: number;
-  format?: 'jpeg' | 'png' | 'webp';
-}
-
 export class ImageManager {
   private static instance: ImageManager;
-  private readonly defaultOptions: ImageOptimizationOptions = {
-    quality: 80,
-    maxWidth: 1920,
-    maxHeight: 1080,
-    format: 'webp'
-  };
 
   private constructor() {}
 
@@ -28,8 +15,7 @@ export class ImageManager {
 
   async optimizeImage(
     sourcePath: string,
-    destinationPath: string,
-    options: ImageOptimizationOptions = {}
+    destinationPath: string
   ): Promise<string> {
     // Since we're not using Sharp, we'll just copy the file
     // In a real implementation, you would use a browser-based image optimization

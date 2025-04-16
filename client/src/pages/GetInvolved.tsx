@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import InvolvementCards from '@/components/get-involved/InvolvementCards';
 import VolunteerForm from '@/components/get-involved/VolunteerForm';
 import PartnershipForm from '@/components/get-involved/PartnershipForm';
+import DonationForm from '@/components/get-involved/DonationForm';
 
 const GetInvolved = () => {
   // Set page title
@@ -38,35 +39,7 @@ const GetInvolved = () => {
             We accept donations through various methods. Choose the one that works best for you:
           </p>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
-            <div className="p-4 border border-gray-200 rounded-lg">
-              <h4 className="font-semibold text-gray-800 mb-2">One-time Donation</h4>
-              <p className="text-gray-600 text-sm mb-4">Support a specific project or our general operations</p>
-              <button className="px-4 py-2 bg-primary text-white rounded-full font-medium hover:bg-[#1F6A4D] transition w-full">
-                Donate Now
-              </button>
-            </div>
-            
-            <div className="p-4 border border-gray-200 rounded-lg">
-              <h4 className="font-semibold text-gray-800 mb-2">Monthly Giving</h4>
-              <p className="text-gray-600 text-sm mb-4">Become a sustaining donor with automatic monthly donations</p>
-              <button className="px-4 py-2 bg-primary text-white rounded-full font-medium hover:bg-[#1F6A4D] transition w-full">
-                Give Monthly
-              </button>
-            </div>
-            
-            <div className="p-4 border border-gray-200 rounded-lg">
-              <h4 className="font-semibold text-gray-800 mb-2">Corporate Giving</h4>
-              <p className="text-gray-600 text-sm mb-4">Partner with us as a business or organization</p>
-              <button className="px-4 py-2 bg-primary text-white rounded-full font-medium hover:bg-[#1F6A4D] transition w-full">
-                Corporate Donations
-              </button>
-            </div>
-          </div>
-          
-          <p className="text-sm text-gray-500">
-            Kakamega Empowerment is a 501(c)(3) organization. Your donation may be tax-deductible.
-          </p>
+          <DonationForm />
         </div>
       </div>
     </section>

@@ -28,8 +28,17 @@ export async function setupVite(app: Express, server: Server) {
     allowedHosts: true as const,
   };
 
-  const vite = await createViteServer({
+  // Create a modified config without the theme plugin
+  const modifiedConfig = {
     ...viteConfig,
+    plugins: viteConfig.plugins?.filter(plugin => 
+      // @ts-ignore - We know the plugin name
+      plugin && typeof plugin !== 'function' && plugin.name !== 'vite-plugin-theme'
+    ) || []
+  };
+
+  const vite = await createViteServer({
+    ...modifiedConfig,
     configFile: false,
     customLogger: {
       ...viteLogger,
@@ -70,7 +79,7 @@ export async function setupVite(app: Express, server: Server) {
 }
 
 export function serveStatic(app: Express) {
-  const distPath = path.resolve(__dirname, "public");
+  const distPath = path.resolve(__dirname, "..", "client", "dist");
 
   if (!fs.existsSync(distPath)) {
     throw new Error(

@@ -64,9 +64,29 @@ export default defineConfig({
       output: {
         manualChunks: {
           vendor: ['react', 'react-dom', 'wouter'],
-          ui: ['@radix-ui/react-dialog', '@radix-ui/react-dropdown-menu'],
+          ui: ['@radix-ui/react-dialog', '@radix-ui/react-dropdown-menu', '@radix-ui/react-label', '@radix-ui/react-slot', '@radix-ui/react-toast'],
+          stripe: ['@stripe/stripe-js'],
         },
       },
     },
+    minify: 'terser',
+    terserOptions: {
+      compress: {
+        drop_console: true,
+        drop_debugger: true,
+      },
+    },
+    cssMinify: true,
+    sourcemap: false,
+  },
+  server: {
+    hmr: true,
+    watch: {
+      usePolling: false,
+    },
+  },
+  optimizeDeps: {
+    include: ['react', 'react-dom', 'wouter', '@stripe/stripe-js'],
+    exclude: [],
   },
 });
