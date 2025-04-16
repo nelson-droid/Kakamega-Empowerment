@@ -25,7 +25,15 @@ jobs:
       - name: Install dependencies
         run: |
           cd client
+          rm -rf node_modules package-lock.json
+          npm install postcss postcss-cli autoprefixer tailwindcss
           npm install
+
+      - name: Verify PostCSS
+        run: |
+          cd client
+          echo "module.exports = { plugins: { tailwindcss: {}, autoprefixer: {} } }" > postcss.config.js
+          cat postcss.config.js
 
       - name: Build
         run: |
@@ -33,6 +41,7 @@ jobs:
           npm run build
         env:
           CI: false
+          NODE_ENV: production
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
